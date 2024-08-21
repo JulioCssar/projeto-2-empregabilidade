@@ -18,9 +18,13 @@ Aqui você pode:
 🛠️ Como começar:
 -Clone o repositório
 git clone https://github.com/JulioCssar/projeto-2-empregabilidade.git
+
 !Instale as dependências!
 
 cd escolinha-api
+
 npm install
+
 Inicie o servidor
+
 npm start
