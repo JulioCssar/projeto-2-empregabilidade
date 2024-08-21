@@ -1,6 +1,6 @@
 const express = require("express");
 
-const app = express;
+const app = express();
 
 app.use(express.json());
 
@@ -53,3 +53,18 @@ app.put("/api/students/:id", (req, res) => {
     req.body.enroll !== undefined ? req.body.enroll === "true" : student.enroll;
   res.send(student);
 });
+
+app.delete("/apistudents/:id", (req, res) => {
+  const student = students.find((c) => c.id === parseInt(req.params.id));
+  if (!student) return res.status(404).send("Aluno não encontrado");
+
+  const index = students.indexOf(student);
+
+  students.splice(index, 1);
+  res.send(student);
+
+});
+
+const port = process.env.port || 8080;
+
+app.listen(port, () => console.log(`executando porta ${port}`))
